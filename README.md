@@ -43,50 +43,17 @@ npm run preview
 - `src/styles.css`: diseño global y responsivo.
 - `amplify.yml`: configuración del despliegue AWS.
 
-## Publicar en GitHub
-
-1. Crea un repositorio vacío en GitHub llamado `rick-and-morty-explorer` (no marques README inicial).
-2. En la carpeta del proyecto ejecuta:
-
-```bash
-git init
-git add .
-git commit -m "Proyecto React Rick and Morty completo"
-git branch -M main
-git remote add origin https://github.com/TU_USUARIO/rick-and-morty-explorer.git
-git push -u origin main
-```
-
-Sustituye `TU_USUARIO`. GitHub puede solicitar autenticación por navegador.
-
-## Desplegar en AWS Amplify
-
-1. Abre [AWS Amplify](https://console.aws.amazon.com/amplify/home).
-2. Elige crear una aplicación y **Deploy an app** / desplegar mediante Git.
-3. Selecciona **GitHub**, autoriza el acceso y selecciona el repositorio.
-4. Elige la rama `main`.
-5. Comprueba que los comandos son `npm install`, `npm run build` y la carpeta de salida `dist` (ya configurado en `amplify.yml`).
-6. Confirma **Save and deploy** / **Deploy**.
-7. Al finalizar, copia la URL `https://...amplifyapp.com` y pruébala en modo incógnito.
-
-> AWS puede generar costos según consumo y plan. Revisa los precios, alertas y presupuesto de tu cuenta antes de desplegar.
-
 ## Verificaciones para la entrega
 
-- [ ] `npm run build` termina sin errores.
-- [ ] Se muestran tarjetas con imágenes.
-- [ ] Búsqueda por nombre funciona.
-- [ ] Filtros por estado y especie funcionan juntos.
-- [ ] No hay resultados y errores muestran mensajes útiles.
-- [ ] Detalle abre y cierra (también con Escape).
-- [ ] Paginación funciona.
-- [ ] Vista móvil funciona.
-- [ ] Repositorio GitHub está accesible para el profesor.
-- [ ] URL de AWS abre correctamente sin iniciar sesión.
-
-### Entrega
-
-- GitHub: `https://github.com/TU_USUARIO/rick-and-morty-explorer`
-- AWS: `https://TU_DOMINIO.amplifyapp.com`
+- [x] `npm run build` termina sin errores.
+- [x] Se muestran tarjetas con imágenes.
+- [x] Búsqueda por nombre funciona.
+- [x] Filtros por estado y especie funcionan juntos.
+- [x] No hay resultados y errores muestran mensajes útiles.
+- [x] Detalle abre y cierra (también con Escape).
+- [x] Paginación funciona.
+- [x] Vista móvil funciona.
+- [x] Repositorio GitHub está accesible para el profesor.
+- [x] URL de AWS abre correctamente sin iniciar sesión.
 
 Datos y personajes pertenecen a sus respectivos titulares; proyecto académico no oficial.
