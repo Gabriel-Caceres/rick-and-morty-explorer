@@ -4,9 +4,8 @@ import CharacterCard from './components/CharacterCard';
 import CharacterModal from './components/CharacterModal';
 import { getCharacters } from './services/api';
 import { useDebounce } from './hooks/useDebounce';
+import { statusOptions, speciesOptions } from './utils/translations';
 
-const statusOptions = [{ value: '', label: 'Todos los estados' }, { value: 'alive', label: 'Vivos' }, { value: 'dead', label: 'Muertos' }, { value: 'unknown', label: 'Desconocidos' }];
-const speciesOptions = [{ value: '', label: 'Todas las especies' }, { value: 'Human', label: 'Humanos' }, { value: 'Alien', label: 'Alienígenas' }, { value: 'Robot', label: 'Robots' }, { value: 'Humanoid', label: 'Humanoides' }, { value: 'Animal', label: 'Animales' }, { value: 'Mythological Creature', label: 'Criaturas mitológicas' }];
 
 export default function App() {
   const [name, setName] = useState('');
@@ -43,7 +42,7 @@ export default function App() {
     <div className="results-line"><span>{loading ? 'Buscando en las dimensiones...' : `${data.results.length} personajes en esta página`}</span><span>{!loading && data.info.pages > 0 ? `Página ${page} de ${data.info.pages}` : ''}</span></div>
     {error ? <div className="state-box" role="alert"><h3>Se perdió la conexión con el portal</h3><p>{error}</p><button type="button" className="action-button" onClick={() => setReloadKey(k => k + 1)}><RefreshCcw size={17}/> Reintentar</button></div> : loading ? <div className="state-box" role="status"><LoaderCircle className="spin" size={34}/><p>Buscando personajes entre dimensiones...</p></div> : data.results.length === 0 ? <div className="state-box"><Search size={34}/><h3>No encontramos personajes</h3><p>Prueba otro nombre o cambia los filtros.</p><button type="button" className="action-button" onClick={clearFilters}>Restablecer filtros</button></div> : <div className="character-grid">{data.results.map(character => <CharacterCard key={character.id} character={character} onClick={setSelectedId}/>)}</div>}
     {!loading && !error && data.info.pages > 1 && <div className="pagination"><button type="button" onClick={() => navigate(page - 1)} disabled={page === 1}><ArrowLeft size={17}/> Anterior</button><span>{page} / {data.info.pages}</span><button type="button" onClick={() => navigate(page + 1)} disabled={page === data.info.pages}>Siguiente <ArrowRight size={17}/></button></div>}</section></main>
-    <footer><span><Atom size={16}/> PORTALVERSE</span><p>Proyecto académico en React · Datos de <a href="https://rickandmortyapi.com/" target="_blank" rel="noreferrer">Rick and Morty API</a></p><a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={20}/></a></footer>
+    <footer><span><Atom size={16}/> PORTALVERSE</span><p>Proyecto académico en React · Datos de <a href="https://rickandmortyapi.com/" target="_blank" rel="noreferrer">Rick and Morty API</a></p><a href="https://github.com/Gabriel-Caceres/rick-and-morty-explorer" target="_blank" rel="noreferrer" aria-label="Repositorio GitHub del proyecto"><Github size={20}/></a></footer>
     {selectedId !== null && <CharacterModal id={selectedId} onClose={closeModal}/>}
   </div>;
 }
