@@ -33,6 +33,9 @@ npm run build
 npm run preview
 ```
 
+## Ejectuar en linea
+Acceder a la direccion: http://rick-morty-gabriel-2026-12345.s3-website-us-east-1.amazonaws.com/
+
 ## Estructura
 
 - `src/App.jsx`: componente principal, filtros, paginación y estados.
